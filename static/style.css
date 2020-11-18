@@ -5,7 +5,6 @@ body {
 }
 
 .header,
-.marketing,
 .footer {
   padding-right: 1rem;
   padding-left: 1rem;
@@ -23,6 +22,15 @@ body {
   line-height: 3rem;
 }
 
+.header h5 {
+  margin-top: 0;
+  margin-bottom: 0;
+  line-height: 3rem;
+  font-variant: small-caps;
+  color: lightgray;
+  font-weight: normal;
+}
+
 /* Custom page footer */
 .footer {
   padding-top: 1.5rem;
@@ -37,7 +45,7 @@ body {
 
 .profile-pic {
     display:inline-block;
-    border:2px solid #0072B2;
+    border:2px solid #025482;
     border-radius:100%;
     width:200px;
     height:200px;
@@ -50,9 +58,9 @@ body {
 }
 
 /* Customize container */
-@media (min-width: 52em) {
+@media (min-width: 48em) {
   .container {
-    max-width: 50rem;
+    max-width: 46rem;
   }
 }
 .container-narrow > hr {
@@ -75,12 +83,12 @@ body {
 .sub-panel h4 {
   width:100%;
   border-bottom: 1px solid lightgray;
-  color: #0072B2;
+  color: #025482;
 }
 
 /* Publications */
 .pub-title {
-    font-weight:bold;
+   font-weight:bold;
 }
 .pub-authors {
     font-size:90%;
@@ -96,11 +104,10 @@ body {
     margin-left:2px;
 }
 .pub-links-header {
-  color: #0072B2;
+  color: #025482;
   font-size:90%;
 }
 .pub-links-header-a {
-  color: #D55E00;
   font-size:90%;
 }
 .pub-line {
@@ -123,6 +130,3 @@ body {
   }
 }
 
-a {
-    color: #D55E00;
-}
