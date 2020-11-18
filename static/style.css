@@ -37,7 +37,7 @@ body {
 
 .profile-pic {
     display:inline-block;
-    border:2px solid green;
+    border:2px solid #0072B2;
     border-radius:100%;
     width:200px;
     height:200px;
@@ -50,22 +50,63 @@ body {
 }
 
 /* Customize container */
-@media (min-width: 48em) {
+@media (min-width: 52em) {
   .container {
-    max-width: 46rem;
+    max-width: 50rem;
   }
 }
 .container-narrow > hr {
-  margin: 2rem 0;
+  margin: 2rem;
 }
 
-/* Supporting marketing content */
-.misc-panel {
+/* panels */
+.main-panel {
   margin: 3rem 0;
 }
-.misc-panel p + h4 {
+.main-panel p + h4 {
   margin-top: 1.5rem;
 }
+
+.sub-panel {
+  padding-top: 1rem;
+  padding-bottom: 2rem;
+}
+
+.sub-panel h4 {
+  width:100%;
+  border-bottom: 1px solid lightgray;
+  color: #0072B2;
+}
+
+/* Publications */
+.pub-title {
+    font-weight:bold;
+}
+.pub-authors {
+    font-size:90%;
+    font-style:italic;
+    padding-left:2rem;
+}
+.pub-links {
+    padding-left:2rem;
+}
+.pub-links img {
+    transform: translateY(-15%);
+    width:15px;
+    margin-left:2px;
+}
+.pub-links-header {
+  color: #0072B2;
+  font-size:90%;
+}
+.pub-links-header-a {
+  color: #D55E00;
+  font-size:90%;
+}
+.pub-line {
+  margin-bottom: 0.5rem;
+}
+
 
 /* Responsive: Portrait tablets and up */
 @media screen and (min-width: 48em) {
@@ -80,4 +121,8 @@ body {
   .header {
     margin-bottom: 2rem;
   }
+}
+
+a {
+    color: #D55E00;
 }
