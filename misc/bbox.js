@@ -237,6 +237,9 @@
 
 
       switch (entry.label) {
+        case "1":
+            color = "#D62687";
+            break;
         case "2":
             color = "#04C792";
             break;
@@ -244,7 +247,7 @@
             color = "#773806";
             break;
         default:
-            color = "#D62687";
+            color = "#0000ff";
       }
 
       box_element = $('<div class="annotated_bounding_box"></div>');
@@ -297,7 +300,7 @@
       if (this.show_label) {
         text_box.text(entry.label);
         text_box.css('color', color);
-        text_box.css('background-color','rgb(255,255,255,0.9)');
+        text_box.css('background-color','rgb(255,255,255,0.5)');
         text_box.css('padding-left','2px');
       }
       annotator = this;
