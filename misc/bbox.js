@@ -246,9 +246,17 @@
         case '3':
             color = "#773806";
             break;
-        default:
+        case '4':
             color = "#0000ff";
+            break;
+        case '5':
+            color = "#ff0000";
+            break;
+        default:
+            color = "#7fff7f";
       }
+
+
 
       box_element = $('<div class="annotated_bounding_box"></div>');
       box_element.appendTo(this.image_frame).css({
