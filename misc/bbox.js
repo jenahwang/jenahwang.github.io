@@ -146,7 +146,8 @@
           "-webkit-background-size": "contain",
           "-moz-background-size": 'contain',
           "-o-background-size": 'contain',
-          "background-size": "contain"
+          "background-size": "contain",
+          "background-repeat": "no-repeat"
         });
         annotator.selector = new BBoxSelector(annotator.image_frame, options);
         return annotator.initialize_events(annotator.selector, options);
