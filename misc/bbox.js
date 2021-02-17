@@ -142,7 +142,11 @@
           "background-image": "url('" + image_element.src + "')",
           "width": options.width + "px",
           "height": options.height + "px",
-          "position": "relative"
+          "position": "relative",
+          "-webkit-background-size": "contain",
+          "-moz-background-size": 'contain',
+          "-o-background-size": 'contain',
+          "background-size": "contain"
         });
         annotator.selector = new BBoxSelector(annotator.image_frame, options);
         return annotator.initialize_events(annotator.selector, options);
