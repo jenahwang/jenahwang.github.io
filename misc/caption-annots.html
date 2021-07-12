@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+    var caption_loc = "https://jmhessel.com/projects/new_yorker_annotation/example_annotations/"
+    $('#content').load(caption_loc + "0.html");
+
+
+    $('#nextannot').click(function() {
+        var c = parseInt($('#currid').val());
+        goNextPrev(caption_loc,'next', c);
+    });
+
+    $('#prevannot').click(function() {
+        var c = parseInt($('#currid').val());
+        goNextPrev(caption_loc,'prev', c);
+    });
+
+});
+
+function goNextPrev(caption_loc, t, c) {
+        if (t == 'prev') {
+            if (c == 0) {
+                var currid = 542;
+            } else {
+                var currid = parseInt(c) - 1;
+            }
+        } else {
+            if (c == 542) {
+                var currid = 0;
+            } else {
+                var currid = parseInt(c) + 1;
+            }
+        }
+
+        console.log(currid);
+        $('#content').load(caption_loc + currid.toString() + ".html");
+        $('#currid').val(currid);
+        return false;
+}
+
+</script>
+</head>
+<body>
+
+<input type="button" id="prevannot" value="PREV">
+<input id="currid" name="current_id" type="number" value="0" readonly>
+<input type="button" id="nextannot" value="NEXT">
+
+<div id="content">
+
+</div>
+
+</body>
+</html>
