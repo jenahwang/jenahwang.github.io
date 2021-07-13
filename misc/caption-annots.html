@@ -5,8 +5,10 @@
 
     <script>
     $(document).ready(function(){
-        var caption_loc = "https://jmhessel.com/projects/new_yorker_annotation/example_annotations/"
-        $('#content').load(caption_loc + "0.html");
+        var caption_loc = "https://jmhessel.com/projects/new_yorker_annotation/example_annotations/";
+        var caption_orig = caption_loc + "0.html";
+        $('#content').load(caption_orig);
+        $('#caption_link').attr("href", caption_orig);
 
 
         $('#nextannot').click(function() {
@@ -49,7 +51,9 @@
     }
 
     function goto(caption_loc, currid) {
-        $('#content').load(caption_loc + currid.toString() + ".html");
+        var caption_new = caption_loc + currid.toString() + ".html";
+        $('#content').load(caption_new);
+        $('#caption_link').attr("href", caption_new);
         $('#currid').val(currid);
         return false;
 
@@ -73,6 +77,7 @@
         <input id="currid" name="current_id" type="number" value="0">
         <input type="button" id="nextannot" value="NEXT">
     </div>
+    <a id="caption_link">See Original</a>
     <div id="content" class="row-12">
     </div>
 </div>
