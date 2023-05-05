@@ -32,6 +32,18 @@ body {
   font-size:80%;
 }
 
+.name {
+    padding: .5rem;
+    padding-left: 1rem;
+    margin-bottom: 2rem;
+    font-variant: small-caps;
+  font-weight: normal;
+  font-size:95%;
+  background-color: #223843;
+  color: white;
+}
+
+
 /* Custom page footer */
 .footer {
   padding-top: 1.5rem;
@@ -48,8 +60,8 @@ body {
     display:inline-block;
     border:2px solid #025482;
     border-radius:100%;
-    width:200px;
-    height:200px;
+    width:150px;
+    height:150px;
     background-position:center;
     background-size:cover;}
 
@@ -58,10 +70,16 @@ body {
     transform: translateY(15%);
 }
 
+.bio-sidebar {
+    -ms-flex: 0 0 230px;
+    flex: 0 0 230px;
+    text-align: center;
+}
+
 /* Customize container */
-@media (min-width: 48em) {
+@media (min-width: 50em) {
   .container {
-    max-width: 46rem;
+    max-width: 65rem;
   }
 }
 .container-narrow > hr {
@@ -89,7 +107,6 @@ body {
 
 /* Publications */
 .pub-title {
-   font-weight:bold;
 }
 .pub-authors {
     font-size:90%;
@@ -98,6 +115,7 @@ body {
 }
 .pub-links {
     padding-left:2rem;
+    font-variant: small-caps;
 }
 .pub-links img {
     transform: translateY(-15%);
