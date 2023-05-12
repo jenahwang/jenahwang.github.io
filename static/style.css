@@ -1,5 +1,6 @@
 /* Space out content a bit */
 body {
+    background-color: WhiteSmoke;
   padding-top: 1.5rem;
   padding-bottom: 1.5rem;
 }
@@ -36,11 +37,10 @@ body {
     padding: .5rem;
     padding-left: 1rem;
     margin-bottom: 2rem;
-    font-variant: small-caps;
   font-weight: normal;
-  font-size:95%;
   background-color: #223843;
   color: white;
+font-variant: small-caps;
 }
 
 
@@ -77,7 +77,7 @@ body {
 }
 
 /* Customize container */
-@media (min-width: 50em) {
+@media (min-width: 48em) {
   .container {
     max-width: 65rem;
   }
