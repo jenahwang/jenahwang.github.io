@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta name="description" content="">
+        <meta name="author" content="">
+        <link rel="icon" href="/docs/4.0/assets/img/favicons/favicon.ico">
+
+        <title>Signin Template for Bootstrap</title>
+
+        <link href="https://v4-alpha.getbootstrap.com/dist/css/bootstrap.min.css" rel="stylesheet">
+        <link href="signin.css" rel="stylesheet">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+        <script>
+            $(document).ready(function() {
+                $("#doneentering").click(function () {
+                    var name = $("#fnval").val().replace(/ /g, "");
+                    var initial = $("#initval").val().replace(/ /g, "");
+                    var word = $("#wordval").val().replace(/ /g, "");
+                    var num = $("#numval").val().replace(/ /g, "");
+                    var url = "http://34.134.161.111:8888/?USER_ID="+name+initial+"_"+word+"_"+num;
+
+                    $("#use-this-url").val(url);
+                });
+
+
+                $("#copy-url").click(function () {
+                    var copiedtext = $('#use-this-url').val();
+                    if (navigator.clipboard) {
+                        navigator.clipboard.writeText(copiedtext)
+                            .then(() => {
+                                $(".copied-toast").text("Copied!").show().fadeOut(1200);
+                            })
+                            .catch((error) => {
+                                $(".copied-toast").text("Not copied!").show().fadeOut(1200);
+                            });
+                    } else {
+                        $(".copied-toast").text("Not copied!").show().fadeOut(1200);
+                    }
+
+                });
+
+            });
+        </script>
+    </head>
+
+<body>
+    <div class="text-center col-5 offset-1 mt-5">
+        <h1 class="h3 mb-3 font-weight-normal">Please complete the fields. </h1>
+        <h3 class="h5 mb-5"> This form will output a link for annotation using the information you entered. </h3>
+
+        <div class="input-group mb-2">
+          <div class="input-group-prepend">
+              <span class="input-group-text" id="firstname">Your first name</span>
+          </div>
+          <input type="text" class="form-control" id="fnval" aria-describedby="firstname">
+        </div>
+        <div class="input-group mb-2">
+          <div class="input-group-prepend">
+              <span class="input-group-text" id="initial">First INITIAL of your last name</span>
+          </div>
+          <input type="text" class="form-control" id="initval" aria-describedby="initial">
+        </div>
+        <div class="input-group mb-2">
+          <div class="input-group-prepend">
+              <span class="input-group-text" id="choiceword">Pick a word any word</span>
+          </div>
+          <input type="text" class="form-control" id="wordval" aria-describedby="choiceword">
+        </div>
+        <div class="input-group mb-3">
+          <div class="input-group-prepend">
+              <span class="input-group-text" id="choicenumber">Pick a number any number</span>
+          </div>
+          <input type="text" class="form-control" id="numval" aria-describedby="choicenumber">
+        </div>
+        <div class="mt-5 col-12">
+            <button type="button" id="doneentering" class="btn btn-primary">I'm done entering. Generate a link.</button>
+        </div>
+
+        <div class="input-group mt-5">
+            <div class="input-group-prepend">
+              <span class="input-group-text" id="yourlink">YOUR LINK</span>
+            </div>
+            <input type="text" class="form-control bg-light" id="use-this-url" aria-describedby="yourlink" readonly="readonly">
+              <div class="input-group-append">
+                <button class="btn btn-outline-secondary" type="button" id="copy-url">Copy to Clipboard</button>
+              </div>
+        </div>
+        <div class="row offset-1">
+            <div class="mr-2"><em>Save this URL for your future use. </em></div>
+            <div class="copied-toast text-success"></div>
+        </div>
+    </div>
+
+
+</body>
+</html>
