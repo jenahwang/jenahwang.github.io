@@ -7,21 +7,50 @@
         <meta name="author" content="">
         <link rel="icon" href="/docs/4.0/assets/img/favicons/favicon.ico">
 
-        <title>Signin Template for Bootstrap</title>
+        <title>Get Annotation Link</title>
 
         <link href="https://v4-alpha.getbootstrap.com/dist/css/bootstrap.min.css" rel="stylesheet">
         <link href="signin.css" rel="stylesheet">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
         <script>
             $(document).ready(function() {
-                $("#doneentering").click(function () {
-                    var name = $("#fnval").val().replace(/ /g, "");
-                    var initial = $("#initval").val().replace(/ /g, "");
-                    var word = $("#wordval").val().replace(/ /g, "");
-                    var num = $("#numval").val().replace(/ /g, "");
-                    var url = "http://34.134.161.111:8888/?USER_ID="+name+initial+"_"+word+"_"+num;
 
-                    $("#use-this-url").val(url);
+                $("#doneentering").click(function () {
+
+                    var fieldofstudy = $('#fieldname').children("option:selected").val();
+                    if ( fieldofstudy=== 'empty') {
+                        $("#use-this-url").val("Please select the field of study you were assigned to and click the \"GENERATE LINK\" button again!");
+                    }
+                    else if ($("#fnval").val() === '' ||  $("#initval").val() === '' || $("#initval").val() === '' || $("#numval") === '') {
+                        $("#use-this-url").val("One or more of the fields are empty. Complete then click the \"GENERATE LINK\" button again!");
+                    }
+                    else {
+
+                        var url_init = "https://potato-annotations.allen.ai/?USER_ID=";
+
+                        if (fieldofstudy === 'appsci') {
+                            url_init = "https://potato-annotations-wb-appsci.allen.ai/?USER_ID=";
+                        } else if (fieldofstudy === 'arthum') {
+                            url_init = "https://potato-annotations-wb-arthum.allen.ai/?USER_ID=";
+                        } else if (fieldofstudy === 'formsci') {
+                            url_init = "https://potato-annotations-wb-formsci.allen.ai/?USER_ID=";
+
+                        } else if (fieldofstudy === 'natsci') {
+                            url_init = "https://potato-annotations-wb-natsci.allen.ai/?USER_ID=";
+
+                        } else if (fieldofstudy === 'socsci') {
+                            url_init = "https://potato-annotations-wb-socsci.allen.ai/?USER_ID=";
+                        }
+
+                        var name = $("#fnval").val().replace(/ /g, "");
+                        var initial = $("#initval").val().replace(/ /g, "");
+                        var word = $("#initval").val().replace(/ /g, "");
+                        var num = $("#numval").val().replace(/ /g, "");
+                        var url = url_init+name+initial+"_"+word+"_"+num;
+
+                        $("#use-this-url").val(url);
+                    }
+
                 });
 
 
@@ -46,10 +75,20 @@
     </head>
 
 <body>
-    <div class="text-center col-5 offset-1 mt-5">
+    <div class="text-center col-8 offset-1 mt-5">
         <h1 class="h3 mb-3 font-weight-normal">Please complete the fields. </h1>
         <h3 class="h5 mb-5"> This form will output a link for annotation using the information you entered. </h3>
 
+        <div class="dropdown mb-3 text-left">
+            <select class="form-select" id="fieldname" aria-label=".form-select-lg example" \>
+                <option value="empty" selected>Please choose the FIELD OF STUDY you were assigned to.</option>
+                <option value="appsci">Applied Sciences</option>
+                <option value="arthum">Arts and Humanities</option>
+                <option value="formsci">Formal Sciences</option>
+                <option value="natsci">Natural Sciences</option>
+                <option value="socsci">Social Sciences</option>
+            </select>
+        </div>
         <div class="input-group mb-2">
           <div class="input-group-prepend">
               <span class="input-group-text" id="firstname">Your first name</span>
